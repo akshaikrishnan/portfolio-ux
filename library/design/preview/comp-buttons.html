@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--surface-2); padding: 24px; }
+.row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+button { cursor: pointer; font-family: var(--font-sans); border-radius: 0; }
+.label { font-family: var(--font-mono); font-size: 9px; color: var(--text-muted); margin-top: 6px; letter-spacing: 0.06em; text-transform: uppercase; }
+.col { display: flex; flex-direction: column; gap: 6px; }
+/* Primary */
+.btn-primary { background: #0A0A0A; color: #fff; border: 2px solid #0A0A0A; box-shadow: 4px 4px 0 #0A0A0A; padding: 10px 20px; font-size: 15px; font-weight: 700; transition: all 120ms; }
+.btn-primary:hover { box-shadow: 6px 6px 0 #0A0A0A; transform: translate(-1px,-1px); }
+/* Accent */
+.btn-accent { background: #0066FF; color: #fff; border: 2px solid #0066FF; box-shadow: 4px 4px 0 #0A0A0A; padding: 10px 20px; font-size: 15px; font-weight: 700; }
+/* Ghost */
+.btn-ghost { background: transparent; color: #0A0A0A; border: 2px solid #0A0A0A; box-shadow: 4px 4px 0 #0A0A0A; padding: 10px 20px; font-size: 15px; font-weight: 700; }
+/* Small */
+.btn-sm { background: #0A0A0A; color: #fff; border: 2px solid #0A0A0A; box-shadow: 2px 2px 0 #0A0A0A; padding: 6px 14px; font-size: 13px; font-weight: 700; }
+/* Disabled */
+.btn-disabled { background: #EBEBEB; color: #999; border: 2px solid #CCCCCC; box-shadow: 2px 2px 0 #CCCCCC; padding: 10px 20px; font-size: 15px; font-weight: 700; cursor: not-allowed; }
+/* Icon */
+.btn-icon { background: #0A0A0A; color: #fff; border: 2px solid #0A0A0A; box-shadow: 3px 3px 0 #0A0A0A; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+</style>
+</head><body>
+<div class="row">
+  <div class="col">
+    <button class="btn-primary">Open file →</button>
+    <div class="label">primary / default</div>
+  </div>
+  <div class="col">
+    <button class="btn-accent">Send message</button>
+    <div class="label">accent fill</div>
+  </div>
+  <div class="col">
+    <button class="btn-ghost">View case study</button>
+    <div class="label">ghost / outline</div>
+  </div>
+  <div class="col">
+    <button class="btn-sm">Draft 03</button>
+    <div class="label">small</div>
+  </div>
+  <div class="col">
+    <button class="btn-disabled" disabled>Inactive</button>
+    <div class="label">disabled</div>
+  </div>
+  <div class="col">
+    <button class="btn-icon">+</button>
+    <div class="label">icon</div>
+  </div>
+</div>
+</body></html>

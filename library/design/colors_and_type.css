@@ -1,0 +1,613 @@
+/* ============================================================
+   PORTFOLIO DESIGN SYSTEM — Colors & Typography
+   Neo-Brutalism × Figma-Inspired Interactive Portfolio
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ============================================================
+   COLOR TOKENS
+   ============================================================ */
+
+:root {
+  /* --- Accent (user-switchable) --- */
+  --accent:          #0066FF;
+  --accent-rgb:      0, 102, 255;
+  --accent-hover:    #0052CC;
+  --accent-muted:    rgba(0, 102, 255, 0.12);
+  --accent-text:     #FFFFFF;
+
+  /* --- Accent Palette (matches in-screen color picker) --- */
+  --accent-blue:     #0066FF;  /* default blue */
+  --accent-purple:   #7B5CF0;  /* purple — section dots, headings */
+  --accent-pink:     #FF3080;  /* hot pink */
+  --accent-orange:   #FF6B00;  /* orange */
+  --accent-lime:     #CCFF00;  /* neon lime — highlights, CTAs, CURRENT badge */
+  --accent-black:    #0A0A0A;  /* black accent mode */
+
+  /* Legacy alternates (kept for back-compat) */
+  --accent-alt1:     #FF6B00;  /* orange */
+  --accent-alt2:     #CCFF00;  /* lime */
+  --accent-alt3:     #7B5CF0;  /* purple */
+  --accent-alt4:     #FF3080;  /* pink */
+
+  /* --- Highlight --- */
+  --highlight-bg:    #CCFF00;  /* text highlight fill (hero "people") */
+  --highlight-text:  #0A0A0A;  /* text on highlight */
+
+  /* --- Surface --- */
+  --surface:         #FFFFFF;
+  --surface-2:       #F5F5F0;  /* canvas / page background */
+  --surface-3:       #EBEBEB;  /* panel / sidebar backgrounds */
+  --surface-4:       #DDDDDD;  /* input backgrounds */
+  --surface-invert:  #0A0A0A;  /* dark surface */
+
+  /* --- Text --- */
+  --text-primary:    #0A0A0A;
+  --text-secondary:  #555555;
+  --text-muted:      #999999;
+  --text-invert:     #FFFFFF;
+  --text-accent:     var(--accent);
+
+  /* --- Borders --- */
+  --border:          #0A0A0A;  /* hard brutalist border */
+  --border-light:    #DDDDDD;  /* subtle dividers */
+  --border-accent:   var(--accent);
+  --border-width:    2px;
+
+  /* --- Sticky Notes --- */
+  --sticky-yellow:        #FFE566;
+  --sticky-yellow-shadow: #D4BF3A;
+  --sticky-pink:          #FFB3C1;
+  --sticky-pink-shadow:   #D48090;
+  --sticky-blue:          #B3D9FF;
+  --sticky-blue-shadow:   #80AEDD;
+  --sticky-green:         #B3FFD9;
+  --sticky-green-shadow:  #6DDBA8;
+  --sticky-lime:          #CCFF00;  /* neon lime — experience section */
+  --sticky-lime-shadow:   #99C200;
+  --sticky-lavender:      #E8E0FF;  /* soft purple tint */
+  --sticky-lavender-shadow: #B8A8E8;
+
+  /* --- State Colors --- */
+  --success:         #00CC66;
+  --success-muted:   rgba(0, 204, 102, 0.12);
+  --warning:         #FF9900;
+  --warning-muted:   rgba(255, 153, 0, 0.12);
+  --error:           #FF3B00;
+  --error-muted:     rgba(255, 59, 0, 0.12);
+  --inactive:        #CCCCCC;
+
+  /* --- Canvas / Grid --- */
+  --canvas-bg:       #F5F5F0;
+  --grid-dot:        rgba(0, 0, 0, 0.12);
+  --grid-size:       24px;
+  --ruler-bg:        #EBEBEB;
+  --ruler-border:    #CCCCCC;
+  --ruler-tick:      #999999;
+
+  /* ============================================================
+     SHADOW TOKENS (Neo-Brutalism — no blur, hard offset)
+     ============================================================ */
+
+  --shadow-xs:       2px 2px 0px var(--border);
+  --shadow-sm:       4px 4px 0px var(--border);
+  --shadow-md:       6px 6px 0px var(--border);
+  --shadow-lg:       8px 8px 0px var(--border);
+  --shadow-xl:       12px 12px 0px var(--border);
+
+  --shadow-accent-xs: 2px 2px 0px var(--accent);
+  --shadow-accent-sm: 4px 4px 0px var(--accent);
+  --shadow-accent-md: 6px 6px 0px var(--accent);
+
+  /* Hover lift (shadow grows, element translates up-left) */
+  --shadow-hover:    10px 10px 0px var(--border);
+  --translate-hover: translate(-2px, -2px);
+  --translate-press: translate(2px, 2px);
+
+  /* Selection glow (subtle, accent-colored) */
+  --shadow-selection: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
+
+  /* ============================================================
+     SPACING TOKENS (8px grid)
+     ============================================================ */
+
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   24px;
+  --space-6:   32px;
+  --space-7:   40px;
+  --space-8:   48px;
+  --space-9:   64px;
+  --space-10:  80px;
+  --space-11:  96px;
+  --space-12:  128px;
+
+  /* --- Badge / Level Colors --- */
+  --badge-expert-bg:        #7B5CF0;  /* EXPERT — purple */
+  --badge-expert-text:      #FFFFFF;
+  --badge-advanced-bg:      #0066FF;  /* ADVANCED — blue */
+  --badge-advanced-text:    #FFFFFF;
+  --badge-intermediate-bg:  #FF3080;  /* INTERMEDIATE — pink */
+  --badge-intermediate-text:#FFFFFF;
+  --badge-current-bg:       #CCFF00;  /* CURRENT — lime */
+  --badge-current-text:     #0A0A0A;
+  --badge-published-bg:     #7B5CF0;  /* PUBLISHED — purple */
+  --badge-published-text:   #FFFFFF;
+  --badge-draft-bg:         #F5F5F0;  /* DRAFT — neutral */
+  --badge-draft-text:       #555555;
+  --badge-in-progress-bg:   #FF6B00;  /* IN PROGRESS — orange */
+  --badge-in-progress-text: #FFFFFF;
+  --badge-product-bg:       #7B5CF0;
+  --badge-product-text:     #FFFFFF;
+  --badge-mobile-bg:        #0066FF;
+  --badge-mobile-text:      #FFFFFF;
+  --badge-web-bg:           #0A0A0A;
+  --badge-web-text:         #FFFFFF;
+  --badge-branding-bg:      #FF3080;
+  --badge-branding-text:    #FFFFFF;
+
+  /* --- Blog Number Chips --- */
+  --chip-01-bg:   #7B5CF0;  /* purple */
+  --chip-02-bg:   #0A0A0A;  /* black */
+  --chip-03-bg:   #FF3080;  /* pink */
+  --chip-04-bg:   #F5F5F0;  /* light */
+  --chip-05-bg:   #0066FF;  /* blue */
+  --chip-text:    #FFFFFF;
+  --chip-04-text: #0A0A0A;
+
+  /* ============================================================
+     BORDER RADIUS
+     ============================================================ */
+
+  --radius-none:   0px;
+  --radius-xs:     2px;    /* sticky note tape, tiny accents */
+  --radius-sm:     4px;    /* cursor labels, tooltips, pill tags */
+  --radius-md:     8px;    /* input fields, small cards */
+  --radius-card:   12px;   /* skill cards, project cards */
+  --radius-full:   999px;  /* pill badges, filter chips */
+
+  /* ============================================================
+     TYPOGRAPHY TOKENS
+     ============================================================ */
+
+  /* Font stacks */
+  --font-sans:   'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-mono:   'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', monospace;
+
+  /* Size scale */
+  --t-xs:    11px;
+  --t-sm:    13px;
+  --t-base:  16px;
+  --t-md:    18px;
+  --t-lg:    24px;
+  --t-xl:    36px;
+  --t-2xl:   56px;
+  --t-3xl:   80px;
+
+  /* Weights */
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-bold:    700;
+
+  /* Line heights */
+  --lh-tight:   0.95;
+  --lh-heading: 1.1;
+  --lh-snug:    1.2;
+  --lh-normal:  1.4;
+  --lh-relaxed: 1.6;
+
+  /* Letter spacing */
+  --ls-tight:   -0.03em;
+  --ls-normal:  0;
+  --ls-wide:    0.04em;
+  --ls-wider:   0.08em;
+  --ls-widest:  0.12em;
+
+  /* ============================================================
+     MOTION TOKENS
+     ============================================================ */
+
+  /* Timing */
+  --duration-micro:    150ms;
+  --duration-standard: 250ms;
+  --duration-complex:  400ms;
+
+  /* Easing */
+  --ease-primary:  cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-snappy:   cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-bounce:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:      cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-in:       cubic-bezier(0.4, 0.0, 1.0, 1);
+
+  /* Composite transitions */
+  --transition-fast:     all var(--duration-micro) var(--ease-snappy);
+  --transition-standard: all var(--duration-standard) var(--ease-primary);
+  --transition-shadow:   box-shadow var(--duration-micro) var(--ease-snappy),
+                         transform var(--duration-micro) var(--ease-snappy);
+
+  /* ============================================================
+     Z-INDEX LAYERS
+     ============================================================ */
+
+  --z-canvas:    0;
+  --z-frame:     10;
+  --z-sticky:    20;
+  --z-selection: 30;
+  --z-panel:     40;
+  --z-cursor:    50;
+  --z-overlay:   60;
+  --z-top:       100;
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES
+   ============================================================ */
+
+/* Display — massive hero text */
+.t-display {
+  font-family: var(--font-sans);
+  font-size: var(--t-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+
+/* H1 — section headings */
+h1, .t-h1 {
+  font-family: var(--font-sans);
+  font-size: var(--t-2xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+
+/* H2 — card/subsection titles */
+h2, .t-h2 {
+  font-family: var(--font-sans);
+  font-size: var(--t-xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+
+/* H3 — card titles */
+h3, .t-h3 {
+  font-family: var(--font-sans);
+  font-size: var(--t-lg);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-normal);
+  letter-spacing: 0;
+  color: var(--text-primary);
+}
+
+/* UI label — navigation, panel labels */
+.t-label {
+  font-family: var(--font-sans);
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+  letter-spacing: 0;
+  color: var(--text-primary);
+}
+
+/* Body text */
+p, .t-body {
+  font-family: var(--font-sans);
+  font-size: var(--t-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+}
+
+/* Small text / captions */
+.t-sm {
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--text-muted);
+}
+
+/* Frame labels — mono, ALL CAPS */
+.t-frame-label {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Annotations — mono */
+.t-annotation {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+}
+
+/* Inspect panel values */
+.t-inspect {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-wide);
+  color: var(--text-accent);
+}
+
+/* Micro labels — ruler ticks, etc */
+.t-micro {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  letter-spacing: var(--ls-normal);
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+/* Canvas grid background */
+.canvas-bg {
+  background-color: var(--canvas-bg);
+  background-image: radial-gradient(circle, var(--grid-dot) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+/* Brutalist card */
+.frame-card {
+  background: var(--surface);
+  border: var(--border-width) solid var(--border);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-shadow);
+}
+
+.frame-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: var(--translate-hover);
+}
+
+.frame-card:active {
+  box-shadow: var(--shadow-xs);
+  transform: var(--translate-press);
+}
+
+/* Selection state */
+.selected {
+  outline: var(--border-width) solid var(--accent);
+  box-shadow: var(--shadow-selection);
+}
+
+/* Hard button */
+.btn {
+  font-family: var(--font-sans);
+  font-size: var(--t-base);
+  font-weight: var(--fw-bold);
+  background: var(--text-primary);
+  color: var(--text-invert);
+  border: var(--border-width) solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-3) var(--space-5);
+  cursor: pointer;
+  transition: var(--transition-shadow);
+  border-radius: var(--radius-none);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.btn:hover {
+  box-shadow: var(--shadow-md);
+  transform: var(--translate-hover);
+}
+
+.btn:active {
+  box-shadow: var(--shadow-xs);
+  transform: var(--translate-press);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Sticky note */
+.sticky {
+  background: var(--sticky-yellow);
+  border-radius: var(--radius-xs);
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  transform: rotate(-1.5deg);
+  box-shadow: 3px 3px 0px var(--sticky-yellow-shadow);
+}
+.sticky-lime    { background: var(--sticky-lime);     box-shadow: 3px 3px 0px var(--sticky-lime-shadow); }
+.sticky-pink    { background: var(--sticky-pink);     box-shadow: 3px 3px 0px var(--sticky-pink-shadow); }
+.sticky-blue    { background: var(--sticky-blue);     box-shadow: 3px 3px 0px var(--sticky-blue-shadow); }
+.sticky-lavender{ background: var(--sticky-lavender); box-shadow: 3px 3px 0px var(--sticky-lavender-shadow); }
+
+/* Highlight span — hero "people" */
+.highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text);
+  padding: 0 var(--space-1);
+  display: inline;
+}
+
+/* Skill card (rounded) */
+.skill-card {
+  background: var(--surface);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-5);
+  transition: var(--transition-shadow);
+}
+.skill-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: var(--translate-hover);
+}
+
+/* Project card (rounded) */
+.project-card {
+  background: var(--surface);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: var(--transition-shadow);
+}
+.project-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: var(--translate-hover);
+}
+
+/* Filter pill */
+.filter-pill {
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  background: var(--surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.filter-pill.active,
+.filter-pill:hover {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+/* Badge */
+.badge {
+  font-family: var(--font-sans);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+}
+.badge-expert       { background: var(--badge-expert-bg);       color: var(--badge-expert-text); }
+.badge-advanced     { background: var(--badge-advanced-bg);     color: var(--badge-advanced-text); }
+.badge-intermediate { background: var(--badge-intermediate-bg); color: var(--badge-intermediate-text); }
+.badge-current      { background: var(--badge-current-bg);      color: var(--badge-current-text); }
+.badge-published    { background: var(--badge-published-bg);    color: var(--badge-published-text); }
+.badge-draft        { background: var(--badge-draft-bg);        color: var(--badge-draft-text); border: 1px solid var(--border-light); }
+.badge-in-progress  { background: var(--badge-in-progress-bg);  color: var(--badge-in-progress-text); }
+.badge-product      { background: var(--badge-product-bg);      color: var(--badge-product-text); }
+.badge-mobile       { background: var(--badge-mobile-bg);       color: var(--badge-mobile-text); }
+.badge-web          { background: var(--badge-web-bg);          color: var(--badge-web-text); }
+.badge-branding     { background: var(--badge-branding-bg);     color: var(--badge-branding-text); }
+
+/* Skill proficiency dots */
+.skill-dots {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.skill-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: var(--border-width) solid var(--border);
+}
+.skill-dot.empty {
+  background: var(--surface-3);
+}
+
+/* Section accent dot (e.g. "Writing." purple dot) */
+.section-dot {
+  color: var(--accent);
+}
+
+/* Accent color switcher swatch */
+.accent-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: var(--border-width) solid var(--border);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.accent-swatch.active {
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--border);
+}
+
+/* Timeline entry */
+.timeline-entry {
+  border: var(--border-width) solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  padding: var(--space-5) var(--space-6);
+  transition: var(--transition-shadow);
+}
+.timeline-entry.active {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-accent-md);
+}
+
+/* Contact form input */
+.form-input {
+  font-family: var(--font-sans);
+  font-size: var(--t-base);
+  border: var(--border-width) solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  color: var(--text-primary);
+  width: 100%;
+  transition: border-color var(--duration-micro) var(--ease-snappy);
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+}
+
+/* Social link row */
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width) solid var(--border-light);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+.social-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+}

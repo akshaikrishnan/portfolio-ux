@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--surface-2); padding: 24px; display: flex; flex-direction: column; gap: 28px; }
+.section-label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; }
+.col { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.token { font-family: var(--font-mono); font-size: 9px; color: var(--text-muted); }
+
+/* Skill level dots */
+.dots { display: flex; gap: 4px; align-items: center; }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #0A0A0A; }
+.dot.filled { background: var(--accent); }
+.dot.empty  { background: var(--surface-3); }
+
+/* Blog number chips */
+.chip {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-sans); font-size: 13px; font-weight: 700;
+  border: 2px solid var(--border);
+}
+
+/* Filter pills */
+.pill {
+  font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+  border: 2px solid var(--border); border-radius: 999px;
+  padding: 4px 14px; cursor: pointer; background: var(--surface);
+  color: var(--text-primary);
+}
+.pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* Section tag above headings */
+.section-tag {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); display: flex; align-items: center; gap: 6px;
+}
+.section-tag::before { content: '✦'; font-size: 9px; }
+</style>
+</head><body>
+
+<!-- Skill level badges -->
+<div>
+  <div class="section-label">Skill Level Badges — Skills section</div>
+  <div class="row">
+    <div class="col">
+      <div class="badge badge-expert">Expert</div>
+      <div class="token">--badge-expert-bg<br>#7B5CF0</div>
+    </div>
+    <div class="col">
+      <div class="badge badge-advanced">Advanced</div>
+      <div class="token">--badge-advanced-bg<br>#0066FF</div>
+    </div>
+    <div class="col">
+      <div class="badge badge-intermediate">Intermediate</div>
+      <div class="token">--badge-intermediate-bg<br>#FF3080</div>
+    </div>
+    <div class="col">
+      <div class="badge badge-current">Current</div>
+      <div class="token">--badge-current-bg<br>#CCFF00</div>
+    </div>
+  </div>
+</div>
+
+<!-- Project type badges -->
+<div>
+  <div class="section-label">Project Type Badges — Projects section</div>
+  <div class="row">
+    <div class="col">
+      <div class="badge badge-product">Product</div>
+      <div class="token">--badge-product-bg</div>
+    </div>
+    <div class="col">
+      <div class="badge badge-mobile">Mobile</div>
+      <div class="token">--badge-mobile-bg</div>
+    </div>
+    <div class="col">
+      <div class="badge badge-web">Web</div>
+      <div class="token">--badge-web-bg</div>
+    </div>
+    <div class="col">
+      <div class="badge badge-branding">Branding</div>
+      <div class="token">--badge-branding-bg</div>
+    </div>
+  </div>
+</div>
+
+<!-- Writing / blog badges -->
+<div>
+  <div class="section-label">Writing Status Badges — Writing section</div>
+  <div class="row">
+    <div class="col">
+      <div class="badge badge-published">Published</div>
+      <div class="token">--badge-published-bg</div>
+    </div>
+    <div class="col">
+      <div class="badge badge-draft">Draft</div>
+      <div class="token">--badge-draft-bg</div>
+    </div>
+    <div class="col">
+      <div class="badge badge-in-progress">In Progress</div>
+      <div class="token">--badge-in-progress-bg</div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog number chips -->
+<div>
+  <div class="section-label">Blog Number Chips — Writing section cards</div>
+  <div class="row">
+    <div class="col">
+      <div class="chip" style="background:#7B5CF0;color:#fff;">01</div>
+      <div class="token">--chip-01-bg<br>#7B5CF0</div>
+    </div>
+    <div class="col">
+      <div class="chip" style="background:#0A0A0A;color:#fff;">02</div>
+      <div class="token">--chip-02-bg<br>#0A0A0A</div>
+    </div>
+    <div class="col">
+      <div class="chip" style="background:#FF3080;color:#fff;">03</div>
+      <div class="token">--chip-03-bg<br>#FF3080</div>
+    </div>
+    <div class="col">
+      <div class="chip" style="background:#F5F5F0;color:#0A0A0A;">04</div>
+      <div class="token">--chip-04-bg<br>#F5F5F0</div>
+    </div>
+    <div class="col">
+      <div class="chip" style="background:#0066FF;color:#fff;">05</div>
+      <div class="token">--chip-05-bg<br>#0066FF</div>
+    </div>
+  </div>
+</div>
+
+<!-- Filter pills -->
+<div>
+  <div class="section-label">Filter Pills — Projects &amp; Writing sections</div>
+  <div class="row">
+    <div class="pill active">All</div>
+    <div class="pill">Product</div>
+    <div class="pill">Web</div>
+    <div class="pill">Mobile</div>
+    <div class="pill">Branding</div>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <div class="pill active">All</div>
+    <div class="pill">UX</div>
+    <div class="pill">Design Systems</div>
+    <div class="pill">Frontend</div>
+    <div class="pill">Process</div>
+    <div class="pill">Thoughts</div>
+  </div>
+</div>
+
+<!-- Section tags -->
+<div>
+  <div class="section-label">Section Identifier Tag — above each section heading</div>
+  <div class="row" style="flex-direction:column; gap:8px;">
+    <div class="section-tag" style="color:#0066FF;">Section 01</div>
+    <div class="section-tag" style="color:#7B5CF0;">Section 02</div>
+    <div class="section-tag" style="color:#FF3080;">Section 03</div>
+  </div>
+</div>
+
+<!-- Skill proficiency dots -->
+<div>
+  <div class="section-label">Skill Proficiency Dots — Skills section cards</div>
+  <div class="row" style="flex-direction:column; gap:10px;">
+    <div class="col">
+      <div style="font-size:12px;font-weight:600;margin-bottom:4px;">4+ yrs — Expert</div>
+      <div class="dots">
+        <div class="dot filled"></div><div class="dot filled"></div>
+        <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+      </div>
+    </div>
+    <div class="col">
+      <div style="font-size:12px;font-weight:600;margin-bottom:4px;">3+ yrs — Advanced</div>
+      <div class="dots">
+        <div class="dot filled"></div><div class="dot filled"></div>
+        <div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div>
+      </div>
+    </div>
+    <div class="col">
+      <div style="font-size:12px;font-weight:600;margin-bottom:4px;">2+ yrs — Intermediate</div>
+      <div class="dots">
+        <div class="dot filled"></div><div class="dot filled"></div>
+        <div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>

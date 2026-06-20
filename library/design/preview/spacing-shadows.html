@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-mono); background: var(--surface-2); padding: 24px; }
+.row { display: flex; gap: 20px; flex-wrap: wrap; }
+.shadow-card { width: 90px; height: 64px; background: var(--surface); border: 2px solid var(--border); display: flex; flex-direction: column; justify-content: flex-end; padding: 6px; }
+.shadow-name { font-size: 9px; font-weight: 500; letter-spacing: 0.04em; color: var(--text-muted); }
+.wrap { display: flex; flex-direction: column; gap: 8px; }
+</style>
+</head><body>
+<div class="row">
+  <div class="wrap">
+    <div class="shadow-card" style="box-shadow: 2px 2px 0px #0A0A0A;"><span class="shadow-name">--shadow-xs<br>2×2</span></div>
+  </div>
+  <div class="wrap">
+    <div class="shadow-card" style="box-shadow: 4px 4px 0px #0A0A0A;"><span class="shadow-name">--shadow-sm<br>4×4</span></div>
+  </div>
+  <div class="wrap">
+    <div class="shadow-card" style="box-shadow: 6px 6px 0px #0A0A0A;"><span class="shadow-name">--shadow-md<br>6×6</span></div>
+  </div>
+  <div class="wrap">
+    <div class="shadow-card" style="box-shadow: 8px 8px 0px #0A0A0A;"><span class="shadow-name">--shadow-lg<br>8×8</span></div>
+  </div>
+  <div class="wrap">
+    <div class="shadow-card" style="box-shadow: 12px 12px 0px #0A0A0A;"><span class="shadow-name">--shadow-xl<br>12×12</span></div>
+  </div>
+  <div class="wrap">
+    <div class="shadow-card" style="box-shadow: 4px 4px 0px #0066FF; border-color: #0066FF;"><span class="shadow-name" style="color:#0066FF;">--shadow-accent<br>4×4 blue</span></div>
+  </div>
+  <div class="wrap">
+    <div class="shadow-card" style="outline: 2px solid #0066FF; box-shadow: 0 0 0 3px rgba(0,102,255,0.2);"><span class="shadow-name" style="color:#0066FF;">--shadow-sel<br>selection</span></div>
+  </div>
+</div>
+</body></html>

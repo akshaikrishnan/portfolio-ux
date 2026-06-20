@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Interactive Design File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #F5F5F0; cursor: none; }
+  ::selection { background: rgba(0,102,255,0.2); }
+  /* Custom cursor */
+  .cursor-ring {
+    width: 20px; height: 20px;
+    border: 2px solid #0A0A0A;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    transition: transform 80ms, border-color 80ms;
+    transform: translate(-50%, -50%);
+  }
+  /* Nav */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; height: 48px;
+    background: rgba(245,245,240,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid #0A0A0A;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px; font-weight: 700; color: #0A0A0A;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-links {
+    display: flex; gap: 0; align-items: center;
+  }
+  .nav-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #555; text-decoration: none;
+    padding: 0 16px; height: 48px;
+    display: flex; align-items: center;
+    border-left: 1px solid #DDDDDD;
+    transition: all 150ms;
+  }
+  .nav-link:hover { background: #0A0A0A; color: #fff; }
+  .nav-layer-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    background: #0A0A0A; color: #fff;
+    padding: 2px 8px; letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  /* Footer */
+  .footer {
+    background: #0A0A0A; color: #fff;
+    padding: 80px 80px 48px;
+    border-top: 2px solid #0A0A0A;
+    position: relative; overflow: hidden;
+  }
+  .footer-grid-line {
+    position: absolute; background: rgba(255,255,255,0.05);
+  }
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #EBEBEB; }
+  ::-webkit-scrollbar-thumb { background: #0A0A0A; }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div style="width:20px;height:20px;background:#0A0A0A;display:flex;align-items:center;justify-content:center;">
+      <div style="width:10px;height:10px;background:#F5F5F0;"></div>
+    </div>
+    portfolio.fig
+    <span class="nav-layer-badge" id="nav-badge">layers</span>
+  </div>
+  <div class="nav-links">
+    <a class="nav-link" href="#hero">Hero</a>
+    <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#skills">Skills</a>
+    <a class="nav-link" href="#contact">Contact</a>
+    <a class="nav-link" id="inspect-toggle" href="#" onclick="return false;">Inspect ▸</a>
+  </div>
+</nav>
+
+<!-- Custom cursor -->
+<div class="cursor-ring" id="cursor"></div>
+
+<!-- React root -->
+<div id="root"></div>
+
+<script type="text/babel" src="Tokens.jsx"></script>
+<script type="text/babel" src="StickyNote.jsx"></script>
+<script type="text/babel" src="FrameCard.jsx"></script>
+<script type="text/babel" src="CursorLabel.jsx"></script>
+<script type="text/babel" src="InspectPanel.jsx"></script>
+<script type="text/babel" src="HeroSection.jsx"></script>
+<script type="text/babel" src="ProjectsSection.jsx"></script>
+<script type="text/babel" src="SkillsSection.jsx"></script>
+
+<script type="text/babel">
+const ContactSection = ({ accent }) => {
+  const [focused, setFocused] = React.useState(null);
+  const [sent, setSent] = React.useState(false);
+  const [form, setForm] = React.useState({ name: '', email: '', message: '' });
+
+  const inputStyle = (field) => ({
+    width: '100%',
+    fontFamily: Tokens.fonts.sans,
+    fontSize: 15,
+    padding: '12px 16px',
+    background: '#fff',
+    border: focused === field ? `2px solid ${accent}` : '2px solid #0A0A0A',
+    boxShadow: focused === field ? `0 0 0 3px ${accent}33` : '3px 3px 0 #0A0A0A',
+    outline: 'none',
+    borderRadius: 0,
+    transition: 'all 150ms',
+    color: '#0A0A0A',
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSent(true);
+  };
+
+  return (
+    <section id="contact" style={{ background: '#fff', padding: '96px 80px', borderTop: '2px solid #0A0A0A' }}>
+      <div style={{ fontFamily: Tokens.fonts.mono, fontSize: 11, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#999', marginBottom: 12 }}>FRAME 07 / CONTACT</div>
+      <h2 style={{ fontFamily: Tokens.fonts.sans, fontSize: 'clamp(28px,4vw,48px)', fontWeight: 700, letterSpacing: '-0.02em', color: '#0A0A0A', marginBottom: 48 }}>
+        Message <span style={{ color: accent }}>composer</span>
+      </h2>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, maxWidth: 900 }}>
+        <div>
+          {sent ? (
+            <div style={{ border: `2px solid ${accent}`, boxShadow: `6px 6px 0 ${accent}`, padding: 32, background: accent + '11' }}>
+              <div style={{ fontFamily: Tokens.fonts.mono, fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: accent, marginBottom: 12 }}>Message sent ✓</div>
+              <div style={{ fontFamily: Tokens.fonts.sans, fontSize: 16, color: '#0A0A0A' }}>Thanks for reaching out. I'll get back to you within 24 hours.</div>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <input placeholder="Your name" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                onFocus={() => setFocused('name')} onBlur={() => setFocused(null)}
+                style={inputStyle('name')} />
+              <input placeholder="Email address" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                onFocus={() => setFocused('email')} onBlur={() => setFocused(null)}
+                style={inputStyle('email')} />
+              <textarea placeholder="Your message..." value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                onFocus={() => setFocused('message')} onBlur={() => setFocused(null)}
+                rows={5} style={{ ...inputStyle('message'), resize: 'vertical', fontFamily: Tokens.fonts.sans }} />
+              <button type="submit" style={{ fontFamily: Tokens.fonts.sans, fontSize: 15, fontWeight: 700, background: '#0A0A0A', color: '#fff', border: '2px solid #0A0A0A', boxShadow: '4px 4px 0 #0A0A0A', padding: '12px 24px', cursor: 'pointer', borderRadius: 0, alignSelf: 'flex-start' }}>
+                Send message →
+              </button>
+            </form>
+          )}
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <StickyNote color="yellow" rotate={-1.5}>Available for freelance &amp; full-time roles</StickyNote>
+          <StickyNote color="pink" rotate={2}>Based in — everywhere</StickyNote>
+          <div style={{ fontFamily: Tokens.fonts.mono, fontSize: 11, color: '#999', marginTop: 8 }}>
+            <div style={{ marginBottom: 6 }}>hello@designer.io</div>
+            <div>@designer — Twitter / Dribbble</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FooterSection = ({ accent }) => (
+  <footer className="footer">
+    {[0,1,2,3,4].map(i => (
+      <div key={i} className="footer-grid-line" style={{ left: `${i * 25}%`, top: 0, bottom: 0, width: 1 }} />
+    ))}
+    <div style={{ position: 'relative', zIndex: 2 }}>
+      <div style={{ fontFamily: Tokens.fonts.mono, fontSize: 11, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#555', marginBottom: 16 }}>EOF / END OF FILE</div>
+      <div style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 'clamp(32px,5vw,64px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#fff', lineHeight: 0.95, marginBottom: 40 }}>
+        Close tab or<br />
+        <span style={{ color: accent }}>start over.</span>
+      </div>
+      <div style={{ display: 'flex', gap: 32, paddingTop: 40, borderTop: '1px solid rgba(255,255,255,0.1)', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+        <div style={{ fontFamily: Tokens.fonts.mono, fontSize: 11, color: '#555' }}>
+          portfolio.fig · last saved: just now
+        </div>
+        <div style={{ display: 'flex', gap: 16 }}>
+          {['Twitter', 'Dribbble', 'LinkedIn', 'GitHub'].map(l => (
+            <a key={l} href="#" style={{ fontFamily: Tokens.fonts.mono, fontSize: 11, color: '#555', textDecoration: 'none', transition: 'color 150ms' }} onMouseEnter={e => e.target.style.color = '#fff'} onMouseLeave={e => e.target.style.color = '#555'}>{l}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </footer>
+);
+
+const App = () => {
+  const [accent, setAccent] = React.useState('#0066FF');
+  const [inspectOpen, setInspectOpen] = React.useState(false);
+
+  // Cursor
+  React.useEffect(() => {
+    const ring = document.getElementById('cursor');
+    let rx = -100, ry = -100, tx = -100, ty = -100;
+    const move = e => { tx = e.clientX; ty = e.clientY; };
+    window.addEventListener('mousemove', move);
+    let raf;
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const tick = () => {
+      rx = lerp(rx, tx, 0.15); ry = lerp(ry, ty, 0.15);
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+
+    // Inspect toggle
+    const btn = document.getElementById('inspect-toggle');
+    const toggle = e => { e.preventDefault(); setInspectOpen(o => !o); };
+    btn.addEventListener('click', toggle);
+
+    return () => {
+      window.removeEventListener('mousemove', move);
+      cancelAnimationFrame(raf);
+      btn.removeEventListener('click', toggle);
+    };
+  }, []);
+
+  // Update cursor accent
+  React.useEffect(() => {
+    const ring = document.getElementById('cursor');
+    if (ring) ring.style.borderColor = accent;
+  }, [accent]);
+
+  return (
+    <>
+      <CursorLabel label="Designer" accent={accent} visible={true} />
+      <InspectPanel visible={inspectOpen} accent={accent} />
+      <div id="hero"><HeroSection accent={accent} setAccent={setAccent} /></div>
+      <div id="projects"><ProjectsSection accent={accent} /></div>
+      <div id="skills"><SkillsSection accent={accent} /></div>
+      <ContactSection accent={accent} />
+      <FooterSection accent={accent} />
+    </>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>

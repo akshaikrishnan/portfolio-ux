@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: #E0E0E0; padding: 20px; }
+.grid { display: flex; gap: 0; border: 2px solid var(--border); width: fit-content; }
+.swatch { width: 100px; height: 96px; display: flex; flex-direction: column; justify-content: flex-end; padding: 8px; border-right: 2px solid var(--border); }
+.swatch:last-child { border-right: none; }
+.swatch-name { font-family: var(--font-mono); font-size: 9px; font-weight: 500; }
+.swatch-val { font-family: var(--font-mono); font-size: 9px; opacity: 0.65; }
+.label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-bottom: 8px; }
+.row { margin-bottom: 16px; }
+</style>
+</head><body>
+<div class="row">
+  <div class="label">Surface Scale</div>
+  <div class="grid">
+    <div class="swatch" style="background:#0A0A0A; color:#fff;">
+      <span class="swatch-name">--surface-invert</span>
+      <span class="swatch-val">#0A0A0A</span>
+    </div>
+    <div class="swatch" style="background:#FFFFFF; color:#0A0A0A; border-bottom: 1px solid #ddd;">
+      <span class="swatch-name">--surface</span>
+      <span class="swatch-val">#FFFFFF</span>
+    </div>
+    <div class="swatch" style="background:#F5F5F0; color:#0A0A0A;">
+      <span class="swatch-name">--surface-2</span>
+      <span class="swatch-val">#F5F5F0</span>
+    </div>
+    <div class="swatch" style="background:#EBEBEB; color:#0A0A0A;">
+      <span class="swatch-name">--surface-3</span>
+      <span class="swatch-val">#EBEBEB</span>
+    </div>
+    <div class="swatch" style="background:#DDDDDD; color:#0A0A0A;">
+      <span class="swatch-name">--surface-4</span>
+      <span class="swatch-val">#DDDDDD</span>
+    </div>
+    <div class="swatch" style="background:#CCCCCC; color:#0A0A0A;">
+      <span class="swatch-name">--inactive</span>
+      <span class="swatch-val">#CCCCCC</span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="label">Text Scale</div>
+  <div class="grid">
+    <div class="swatch" style="background:#0A0A0A; color:#fff;">
+      <span class="swatch-name">--text-primary</span>
+      <span class="swatch-val">#0A0A0A</span>
+    </div>
+    <div class="swatch" style="background:#555555; color:#fff;">
+      <span class="swatch-name">--text-secondary</span>
+      <span class="swatch-val">#555555</span>
+    </div>
+    <div class="swatch" style="background:#999999; color:#fff;">
+      <span class="swatch-name">--text-muted</span>
+      <span class="swatch-val">#999999</span>
+    </div>
+    <div class="swatch" style="background:#FFFFFF; color:#0A0A0A; border-bottom: 1px solid #ddd;">
+      <span class="swatch-name">--text-invert</span>
+      <span class="swatch-val">#FFFFFF</span>
+    </div>
+  </div>
+</div>
+</body></html>

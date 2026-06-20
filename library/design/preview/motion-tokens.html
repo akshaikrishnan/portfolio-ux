@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-mono); background: var(--surface); padding: 24px; }
+.section { margin-bottom: 20px; }
+.section-label { font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; border-bottom: 1px solid var(--border-light); padding-bottom: 6px; }
+.token-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #F0F0F0; }
+.token-name { font-size: 11px; font-weight: 500; color: #0A0A0A; }
+.token-val { font-size: 10px; color: #0066FF; }
+.bar { height: 6px; background: #0066FF; border: 1px solid #0A0A0A; margin-top: 2px; }
+</style>
+</head><body>
+<div class="section">
+  <div class="section-label">Duration</div>
+  <div class="token-row">
+    <div><div class="token-name">--duration-micro</div><div class="bar" style="width:40px;background:#0066FF;"></div></div>
+    <div class="token-val">150ms · hover states</div>
+  </div>
+  <div class="token-row">
+    <div><div class="token-name">--duration-standard</div><div class="bar" style="width:80px;"></div></div>
+    <div class="token-val">250ms · panel open / select</div>
+  </div>
+  <div class="token-row">
+    <div><div class="token-name">--duration-complex</div><div class="bar" style="width:140px;background:#9933FF;border-color:#9933FF;"></div></div>
+    <div class="token-val">400ms · zoom / layout</div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-label">Easing</div>
+  <div class="token-row">
+    <div class="token-name">--ease-primary</div>
+    <div class="token-val">cubic-bezier(0.2, 0.8, 0.2, 1)</div>
+  </div>
+  <div class="token-row">
+    <div class="token-name">--ease-snappy</div>
+    <div class="token-val">cubic-bezier(0.4, 0.0, 0.2, 1)</div>
+  </div>
+  <div class="token-row">
+    <div class="token-name">--ease-bounce</div>
+    <div class="token-val">cubic-bezier(0.34, 1.56, 0.64, 1)</div>
+  </div>
+</div>
+</body></html>

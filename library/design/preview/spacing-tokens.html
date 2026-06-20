@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-mono); background: var(--surface); padding: 24px; }
+.row { display: flex; align-items: flex-end; gap: 4px; margin-bottom: 16px; }
+.bar { background: var(--text-primary); display: flex; align-items: flex-end; justify-content: center; border: 2px solid var(--border); }
+.val { font-size: 9px; font-weight: 500; color: var(--text-muted); margin-top: 4px; text-align: center; }
+.pair { display: flex; flex-direction: column; align-items: center; }
+.label { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+</style>
+</head><body>
+<div class="label">Spacing Scale — 8px grid</div>
+<div class="row">
+  <div class="pair"><div class="bar" style="width:4px;height:4px;"></div><div class="val">4</div></div>
+  <div class="pair"><div class="bar" style="width:8px;height:8px;"></div><div class="val">8</div></div>
+  <div class="pair"><div class="bar" style="width:12px;height:12px;"></div><div class="val">12</div></div>
+  <div class="pair"><div class="bar" style="width:16px;height:16px;"></div><div class="val">16</div></div>
+  <div class="pair"><div class="bar" style="width:24px;height:24px;"></div><div class="val">24</div></div>
+  <div class="pair"><div class="bar" style="width:32px;height:32px;"></div><div class="val">32</div></div>
+  <div class="pair"><div class="bar" style="width:40px;height:40px;"></div><div class="val">40</div></div>
+  <div class="pair"><div class="bar" style="width:48px;height:48px;"></div><div class="val">48</div></div>
+  <div class="pair"><div class="bar" style="width:64px;height:64px;"></div><div class="val">64</div></div>
+  <div class="pair"><div class="bar" style="width:80px;height:80px;"></div><div class="val">80</div></div>
+</div>
+</body></html>

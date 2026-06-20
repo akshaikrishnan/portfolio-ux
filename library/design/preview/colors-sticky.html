@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-mono); background: var(--surface-2); padding: 24px; }
+.row { display: flex; gap: 20px; flex-wrap: wrap; }
+.sticky { width: 120px; height: 120px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; font-size: 11px; line-height: 1.4; }
+.sticky-meta { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; }
+</style>
+</head><body>
+<div class="row">
+  <div class="sticky" style="background:#FFE566; box-shadow: 3px 3px 0 #D4BF3A; transform:rotate(-2deg);">
+    <span>← designed this in 2 days</span>
+    <span class="sticky-meta">sticky-yellow</span>
+  </div>
+  <div class="sticky" style="background:#FFB3C1; box-shadow: 3px 3px 0 #D48090; transform:rotate(1.5deg);">
+    <span>look closer →</span>
+    <span class="sticky-meta">sticky-pink</span>
+  </div>
+  <div class="sticky" style="background:#B3D9FF; box-shadow: 3px 3px 0 #80AEDD; transform:rotate(-1deg);">
+    <span>this changes everything ✦</span>
+    <span class="sticky-meta">sticky-blue</span>
+  </div>
+  <div class="sticky" style="background:#B3FFD9; box-shadow: 3px 3px 0 #6DDBA8; transform:rotate(2deg);">
+    <span>currently writing…</span>
+    <span class="sticky-meta">sticky-green</span>
+  </div>
+</div>
+</body></html>

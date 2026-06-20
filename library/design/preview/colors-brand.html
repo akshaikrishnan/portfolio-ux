@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--surface-2); padding: 24px; display: flex; flex-direction: column; gap: 24px; }
+.section-label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.grid { display: flex; gap: 0; border: 2px solid var(--border); width: fit-content; }
+.swatch { width: 108px; height: 96px; display: flex; flex-direction: column; justify-content: flex-end; padding: 8px; border-right: 2px solid var(--border); }
+.swatch:last-child { border-right: none; }
+.swatch-name { font-family: var(--font-mono); font-size: 9px; font-weight: 500; letter-spacing: 0.04em; }
+.swatch-val  { font-family: var(--font-mono); font-size: 9px; opacity: 0.65; margin-top: 2px; }
+
+/* Accent picker row — matches bottom bar in screenshots */
+.picker-row { display: flex; align-items: center; gap: 10px; }
+.picker-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); margin-right: 4px; }
+.swatch-circle { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); cursor: pointer; position: relative; }
+.swatch-circle.active::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+/* Highlight swatch */
+.highlight-demo {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+.highlight-demo span {
+  background: var(--highlight-bg);
+  color: var(--highlight-text);
+  padding: 0 4px;
+}
+</style>
+</head><body>
+
+<div>
+  <div class="section-label">Accent Palette — matches in-screen color picker</div>
+  <div class="grid">
+    <div class="swatch" style="background:#0066FF;color:#fff;">
+      <span class="swatch-name">Blue</span>
+      <span class="swatch-val">#0066FF</span>
+    </div>
+    <div class="swatch" style="background:#7B5CF0;color:#fff;">
+      <span class="swatch-name">Purple</span>
+      <span class="swatch-val">#7B5CF0</span>
+    </div>
+    <div class="swatch" style="background:#FF3080;color:#fff;">
+      <span class="swatch-name">Pink</span>
+      <span class="swatch-val">#FF3080</span>
+    </div>
+    <div class="swatch" style="background:#FF6B00;color:#fff;">
+      <span class="swatch-name">Orange</span>
+      <span class="swatch-val">#FF6B00</span>
+    </div>
+    <div class="swatch" style="background:#CCFF00;color:#0A0A0A;">
+      <span class="swatch-name">Lime</span>
+      <span class="swatch-val">#CCFF00</span>
+    </div>
+    <div class="swatch" style="background:#0A0A0A;color:#fff;">
+      <span class="swatch-name">Black</span>
+      <span class="swatch-val">#0A0A0A</span>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="section-label">As seen in-screen</div>
+  <div class="picker-row">
+    <span class="picker-label">Accent Color:</span>
+    <div class="swatch-circle active" style="background:#0066FF;"></div>
+    <div class="swatch-circle" style="background:#7B5CF0;"></div>
+    <div class="swatch-circle" style="background:#FF3080;"></div>
+    <div class="swatch-circle" style="background:#FF6B00;"></div>
+    <div class="swatch-circle" style="background:#CCFF00; border-color:#999;"></div>
+    <div class="swatch-circle" style="background:#0A0A0A;"></div>
+  </div>
+</div>
+
+<div>
+  <div class="section-label">Derived tokens</div>
+  <div class="grid">
+    <div class="swatch" style="background:rgba(0,102,255,0.12);color:#0066FF;">
+      <span class="swatch-name">--accent-muted</span>
+      <span class="swatch-val">12% blue</span>
+    </div>
+    <div class="swatch" style="background:#0052CC;color:#fff;">
+      <span class="swatch-name">--accent-hover</span>
+      <span class="swatch-val">#0052CC</span>
+    </div>
+    <div class="swatch" style="background:#CCFF00;color:#0A0A0A; border-right: 2px solid #0A0A0A;">
+      <span class="swatch-name">--highlight-bg</span>
+      <span class="swatch-val">#CCFF00</span>
+    </div>
+    <div class="swatch" style="background:#FFFFFF;color:#0A0A0A;">
+      <span class="swatch-name">--surface</span>
+      <span class="swatch-val">#FFFFFF</span>
+    </div>
+    <div class="swatch" style="background:#F5F5F0;color:#0A0A0A;">
+      <span class="swatch-name">--surface-2</span>
+      <span class="swatch-val">#F5F5F0</span>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="section-label">Hero highlight usage</div>
+  <div class="highlight-demo">
+    I design interfaces <span>people</span> love.
+  </div>
+</div>
+
+<div>
+  <div class="section-label">Sticky note palette</div>
+  <div class="grid">
+    <div class="swatch" style="background:#FFE566;color:#0A0A0A;">
+      <span class="swatch-name">Yellow</span>
+      <span class="swatch-val">#FFE566</span>
+    </div>
+    <div class="swatch" style="background:#CCFF00;color:#0A0A0A;">
+      <span class="swatch-name">Lime ★</span>
+      <span class="swatch-val">#CCFF00</span>
+    </div>
+    <div class="swatch" style="background:#E8E0FF;color:#0A0A0A;">
+      <span class="swatch-name">Lavender</span>
+      <span class="swatch-val">#E8E0FF</span>
+    </div>
+    <div class="swatch" style="background:#FFB3C1;color:#0A0A0A;">
+      <span class="swatch-name">Pink</span>
+      <span class="swatch-val">#FFB3C1</span>
+    </div>
+    <div class="swatch" style="background:#B3D9FF;color:#0A0A0A;">
+      <span class="swatch-name">Blue</span>
+      <span class="swatch-val">#B3D9FF</span>
+    </div>
+  </div>
+</div>
+
+</body></html>

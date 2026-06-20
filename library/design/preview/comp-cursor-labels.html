@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-mono); background: var(--surface-2); padding: 24px; }
+.row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+.cursor-label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; padding: 4px 10px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.cursor-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.col { display: flex; flex-direction: column; gap: 4px; }
+.lbl { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+</style>
+</head><body>
+<div class="row">
+  <div class="col">
+    <div class="cursor-label" style="background:#0A0A0A;color:#fff;">
+      <div class="cursor-dot" style="background:#fff;"></div>
+      Designer
+    </div>
+    <div class="lbl">primary</div>
+  </div>
+  <div class="col">
+    <div class="cursor-label" style="background:#0066FF;color:#fff;">
+      <div class="cursor-dot" style="background:#fff;"></div>
+      You
+    </div>
+    <div class="lbl">accent / visitor</div>
+  </div>
+  <div class="col">
+    <div class="cursor-label" style="background:#FF3B00;color:#fff;">
+      <div class="cursor-dot" style="background:#fff;"></div>
+      Client
+    </div>
+    <div class="lbl">alt accent</div>
+  </div>
+  <div class="col">
+    <div class="cursor-label" style="background:#fff;color:#0A0A0A;border:2px solid #0A0A0A;">
+      <div class="cursor-dot" style="background:#0A0A0A;"></div>
+      Reader
+    </div>
+    <div class="lbl">ghost variant</div>
+  </div>
+  <div class="col">
+    <div class="cursor-label" style="background:#9933FF;color:#fff;">
+      <div class="cursor-dot" style="background:#fff;"></div>
+      Collaborator
+    </div>
+    <div class="lbl">alt3 accent</div>
+  </div>
+</div>
+</body></html>

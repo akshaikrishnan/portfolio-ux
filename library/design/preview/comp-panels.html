@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-mono); background: var(--canvas-bg);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 24px 24px; padding: 24px; }
+.panel { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border: 2px solid #0A0A0A; box-shadow: 6px 6px 0 #0A0A0A; width: 200px; }
+.panel-header { background: #0A0A0A; color: #fff; padding: 8px 12px; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+.panel-section { border-bottom: 1px solid #EBEBEB; padding: 10px 12px; }
+.panel-section:last-child { border-bottom: none; }
+.prop-label { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #999; margin-bottom: 6px; }
+.prop-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.prop-key { font-size: 10px; color: #555; }
+.prop-val { font-size: 10px; font-weight: 500; color: #0066FF; }
+</style>
+</head><body>
+<div class="panel">
+  <div class="panel-header">
+    <span>Inspect</span>
+    <span style="opacity:0.5;">✕</span>
+  </div>
+  <div class="panel-section">
+    <div class="prop-label">Layout</div>
+    <div class="prop-row"><span class="prop-key">W</span><span class="prop-val">1440</span></div>
+    <div class="prop-row"><span class="prop-key">H</span><span class="prop-val">900</span></div>
+    <div class="prop-row"><span class="prop-key">X</span><span class="prop-val">0</span></div>
+    <div class="prop-row"><span class="prop-key">Y</span><span class="prop-val">0</span></div>
+  </div>
+  <div class="panel-section">
+    <div class="prop-label">Typography</div>
+    <div class="prop-row"><span class="prop-key">Font</span><span class="prop-val">Space Grotesk</span></div>
+    <div class="prop-row"><span class="prop-key">Size</span><span class="prop-val">80</span></div>
+    <div class="prop-row"><span class="prop-key">Weight</span><span class="prop-val">700</span></div>
+  </div>
+  <div class="panel-section">
+    <div class="prop-label">Fill</div>
+    <div class="prop-row">
+      <span class="prop-key">Color</span>
+      <span style="display:flex;align-items:center;gap:4px;">
+        <span style="width:12px;height:12px;background:#0A0A0A;border:1px solid #ccc;display:inline-block;"></span>
+        <span class="prop-val">#0A0A0A</span>
+      </span>
+    </div>
+  </div>
+  <div class="panel-section">
+    <div class="prop-label">Effects</div>
+    <div class="prop-row"><span class="prop-key">Shadow</span><span class="prop-val">6×6 #0A0A0A</span></div>
+  </div>
+</div>
+</body></html>

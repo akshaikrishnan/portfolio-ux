@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-mono); background: var(--surface-2);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 24px 24px; padding: 32px; display: flex; flex-direction: column; gap: 32px; }
+
+.section-label { font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+
+.row { display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-start; }
+
+.sticky {
+  padding: 16px; font-size: 12px; line-height: 1.5;
+  display: flex; flex-direction: column; justify-content: space-between;
+  gap: 10px; border-radius: 2px; position: relative;
+}
+.sticky-meta { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; }
+
+/* Tape strip at top */
+.tape::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 18px;
+  background: rgba(0,0,0,0.18);
+  border-radius: 2px;
+}
+
+/* Pin dot */
+.pin::before {
+  content: '📌';
+  position: absolute;
+  top: -12px; left: 12px;
+  font-size: 18px;
+}
+
+/* Figma-style sticky with larger text, from screenshots */
+.sticky-lg {
+  padding: 20px; font-size: 14px; line-height: 1.55;
+  border-radius: 2px; position: relative; width: 160px;
+}
+</style>
+</head><body>
+
+<div>
+  <div class="section-label">Standard variants</div>
+  <div class="row">
+
+    <div class="sticky tape" style="width:140px;min-height:120px;background:#FFE566;box-shadow:3px 3px 0 #D4BF3A;transform:rotate(-2.5deg);">
+      ← this changes everything
+      <div class="sticky-meta">hint · yellow</div>
+    </div>
+
+    <div class="sticky tape" style="width:140px;min-height:120px;background:#CCFF00;box-shadow:3px 3px 0 #99C200;transform:rotate(1.5deg);">
+      These are my superpowers ✦
+      <div class="sticky-meta">energy · lime ★ new</div>
+    </div>
+
+    <div class="sticky tape" style="width:140px;min-height:120px;background:#E8E0FF;box-shadow:3px 3px 0 #B8A8E8;transform:rotate(-1.2deg);">
+      Looking forward to hearing from you! 😊
+      <div class="sticky-meta">soft · lavender ★ new</div>
+    </div>
+
+    <div class="sticky tape" style="width:140px;min-height:120px;background:#FFB3C1;box-shadow:3px 3px 0 #D48090;transform:rotate(2deg);">
+      More ideas brewing…
+      <div class="sticky-meta">personality · pink</div>
+    </div>
+
+    <div class="sticky tape" style="width:140px;min-height:120px;background:#B3D9FF;box-shadow:3px 3px 0 #80AEDD;transform:rotate(-0.8deg);">
+      Every role shaped how I design today. ☺
+      <div class="sticky-meta">annotation · blue</div>
+    </div>
+
+  </div>
+</div>
+
+<div>
+  <div class="section-label">Pinned variants — as seen in Experience &amp; Contact sections</div>
+  <div class="row">
+
+    <div class="sticky-lg pin" style="background:#CCFF00;box-shadow:4px 4px 0 #99C200;transform:rotate(-1deg);">
+      <div style="font-weight:700;font-size:22px;margin-bottom:8px;">Linear</div>
+      <div style="background:#0A0A0A;color:#fff;padding:4px 10px;display:inline-block;font-size:12px;font-weight:600;margin-bottom:12px;">Senior UI Designer</div>
+      <div style="font-size:12px;line-height:1.6;color:#333;">
+        📅 Mar 2023 → Present<br>
+        📍 San Francisco, CA<br><br>
+        <span style="background:#0A0A0A;color:#fff;padding:2px 8px;font-size:10px;margin-right:4px;">Design Systems</span>
+        <span style="background:#0A0A0A;color:#fff;padding:2px 8px;font-size:10px;">Product</span>
+      </div>
+    </div>
+
+    <div class="sticky-lg pin" style="background:#E8E0FF;box-shadow:4px 4px 0 #B8A8E8;transform:rotate(1.5deg);width:150px;">
+      <div style="font-size:13px;line-height:1.6;">
+        Looking forward<br>to hearing from<br>you! 😊
+      </div>
+    </div>
+
+    <div class="sticky-lg" style="background:#FFE566;box-shadow:4px 4px 0 #D4BF3A;transform:rotate(-2deg);width:150px;border-top:18px solid rgba(0,0,0,0.15);">
+      <div style="font-size:13px;line-height:1.6;">
+        I write to<br>clarify my<br>thinking. ☺
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div>
+  <div class="section-label">Inline annotation style — handwritten hints on canvas</div>
+  <div class="row" style="gap:40px;">
+    <div style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);transform:rotate(-2deg);">
+      ← Auto layout makes life easier
+    </div>
+    <div style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);transform:rotate(1.5deg);">
+      This card sticks while you scroll →
+    </div>
+    <div style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);transform:rotate(-1deg);">
+      Let's create something awesome!
+    </div>
+  </div>
+</div>
+
+</body></html>

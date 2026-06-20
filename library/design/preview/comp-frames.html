@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--canvas-bg);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
+  background-size: 24px 24px; padding: 28px; }
+.row { display: flex; gap: 28px; flex-wrap: wrap; }
+/* Frame card — base */
+.frame-wrap { display: flex; flex-direction: column; gap: 4px; }
+.frame-label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #555; }
+.card { background: #fff; border: 2px solid #0A0A0A; box-shadow: 6px 6px 0 #0A0A0A; padding: 20px; width: 180px; }
+.card-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.card-sub { font-size: 12px; color: #555; font-family: var(--font-mono); }
+/* hover state */
+.card-hover { background: #fff; border: 2px solid #0A0A0A; box-shadow: 10px 10px 0 #0A0A0A; padding: 20px; width: 180px; transform: translate(-2px,-2px); }
+/* selected state */
+.card-selected { background: #fff; border: 2px solid #0066FF; box-shadow: 0 0 0 3px rgba(0,102,255,0.2); padding: 20px; width: 180px; position: relative; }
+.handle { width: 8px; height: 8px; background: #fff; border: 2px solid #0066FF; position: absolute; }
+.h-tl { top: -5px; left: -5px; }
+.h-tr { top: -5px; right: -5px; }
+.h-bl { bottom: -5px; left: -5px; }
+.h-br { bottom: -5px; right: -5px; }
+/* dark surface */
+.card-dark { background: #0A0A0A; border: 2px solid #0A0A0A; box-shadow: 6px 6px 0 #555; padding: 20px; width: 180px; }
+</style>
+</head><body>
+<div class="row">
+  <div class="frame-wrap">
+    <div class="frame-label">Frame 01 · default</div>
+    <div class="card">
+      <div class="card-title">Project Alpha</div>
+      <div class="card-sub">case-file / 2024</div>
+    </div>
+  </div>
+  <div class="frame-wrap">
+    <div class="frame-label">Frame 02 · hover</div>
+    <div class="card-hover">
+      <div class="card-title">Project Alpha</div>
+      <div class="card-sub">case-file / 2024</div>
+    </div>
+  </div>
+  <div class="frame-wrap">
+    <div class="frame-label">Frame 03 · selected</div>
+    <div class="card-selected">
+      <div class="handle h-tl"></div>
+      <div class="handle h-tr"></div>
+      <div class="handle h-bl"></div>
+      <div class="handle h-br"></div>
+      <div class="card-title">Project Alpha</div>
+      <div class="card-sub" style="color:#0066FF;">layer: project-card</div>
+    </div>
+  </div>
+  <div class="frame-wrap">
+    <div class="frame-label">Frame 04 · dark</div>
+    <div class="card-dark">
+      <div class="card-title" style="color:#fff;">Project Alpha</div>
+      <div class="card-sub" style="color:#999;">case-file / 2024</div>
+    </div>
+  </div>
+</div>
+</body></html>
