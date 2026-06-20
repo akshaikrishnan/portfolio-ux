@@ -1,26 +1,233 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --accent: #0066ff;
+  --accent-rgb: 0, 102, 255;
+  --accent-hover: #0052cc;
+  --accent-muted: rgba(0, 102, 255, 0.12);
+  --accent-text: #ffffff;
+  --accent-blue: #0066ff;
+  --accent-purple: #7b5cf0;
+  --accent-pink: #ff3080;
+  --accent-orange: #ff6b00;
+  --accent-lime: #ccff00;
+  --accent-black: #0a0a0a;
+  --highlight-bg: #ccff00;
+  --highlight-text: #0a0a0a;
+  --surface: #ffffff;
+  --surface-2: #f5f5f0;
+  --surface-3: #ebebeb;
+  --surface-4: #dddddd;
+  --surface-invert: #0a0a0a;
+  --text-primary: #0a0a0a;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+  --text-invert: #ffffff;
+  --text-accent: var(--accent);
+  --border: #0a0a0a;
+  --border-light: #dddddd;
+  --border-accent: var(--accent);
+  --border-width: 2px;
+  --sticky-yellow: #ffe566;
+  --sticky-yellow-shadow: #d4bf3a;
+  --sticky-pink: #ffb3c1;
+  --sticky-pink-shadow: #d48090;
+  --sticky-blue: #b3d9ff;
+  --sticky-blue-shadow: #80aedd;
+  --sticky-green: #b3ffd9;
+  --sticky-green-shadow: #6ddba8;
+  --sticky-lime: #ccff00;
+  --sticky-lime-shadow: #99c200;
+  --sticky-lavender: #e8e0ff;
+  --sticky-lavender-shadow: #b8a8e8;
+  --success: #00cc66;
+  --success-muted: rgba(0, 204, 102, 0.12);
+  --warning: #ff9900;
+  --warning-muted: rgba(255, 153, 0, 0.12);
+  --error: #ff3b00;
+  --error-muted: rgba(255, 59, 0, 0.12);
+  --inactive: #cccccc;
+  --canvas-bg: #f5f5f0;
+  --grid-dot: rgba(0, 0, 0, 0.12);
+  --grid-size: 20px;
+  --ruler-bg: #ebebeb;
+  --ruler-border: #cccccc;
+  --ruler-tick: #999999;
+  --shadow-xs: 2px 2px 0px var(--border);
+  --shadow-sm: 4px 4px 0px var(--border);
+  --shadow-md: 6px 6px 0px var(--border);
+  --shadow-lg: 8px 8px 0px var(--border);
+  --shadow-xl: 12px 12px 0px var(--border);
+  --shadow-accent-xs: 2px 2px 0px var(--accent);
+  --shadow-accent-sm: 4px 4px 0px var(--accent);
+  --shadow-accent-md: 6px 6px 0px var(--accent);
+  --shadow-hover: 10px 10px 0px var(--border);
+  --translate-hover: translate(-2px, -2px);
+  --translate-press: translate(2px, 2px);
+  --shadow-selection: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 96px;
+  --space-12: 128px;
+  --badge-expert-bg: #7b5cf0;
+  --badge-expert-text: #ffffff;
+  --badge-advanced-bg: #0066ff;
+  --badge-advanced-text: #ffffff;
+  --badge-intermediate-bg: #ff3080;
+  --badge-intermediate-text: #ffffff;
+  --badge-current-bg: #ccff00;
+  --badge-current-text: #0a0a0a;
+  --badge-published-bg: #7b5cf0;
+  --badge-published-text: #ffffff;
+  --badge-draft-bg: #f5f5f0;
+  --badge-draft-text: #555555;
+  --badge-in-progress-bg: #ff6b00;
+  --badge-in-progress-text: #ffffff;
+  --badge-product-bg: #7b5cf0;
+  --badge-product-text: #ffffff;
+  --badge-mobile-bg: #0066ff;
+  --badge-mobile-text: #ffffff;
+  --badge-web-bg: #0a0a0a;
+  --badge-web-text: #ffffff;
+  --badge-branding-bg: #ff3080;
+  --badge-branding-text: #ffffff;
+  --chip-01-bg: #7b5cf0;
+  --chip-02-bg: #0a0a0a;
+  --chip-03-bg: #ff3080;
+  --chip-04-bg: #f5f5f0;
+  --chip-05-bg: #0066ff;
+  --chip-text: #ffffff;
+  --chip-04-text: #0a0a0a;
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-card: 12px;
+  --radius-full: 999px;
+  --font-sans: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", "Fira Code", monospace;
+  --t-xs: 11px;
+  --t-sm: 13px;
+  --t-base: 16px;
+  --t-md: 18px;
+  --t-lg: 24px;
+  --t-xl: 36px;
+  --t-2xl: 56px;
+  --t-3xl: 80px;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --lh-tight: 0.95;
+  --lh-heading: 1.1;
+  --lh-snug: 1.2;
+  --lh-normal: 1.4;
+  --lh-relaxed: 1.6;
+  --ls-tight: -0.03em;
+  --ls-normal: 0;
+  --ls-wide: 0.04em;
+  --ls-wider: 0.08em;
+  --ls-widest: 0.12em;
+  --duration-micro: 150ms;
+  --duration-standard: 250ms;
+  --duration-complex: 400ms;
+  --ease-primary: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-snappy: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --transition-fast: all var(--duration-micro) var(--ease-snappy);
+  --transition-standard: all var(--duration-standard) var(--ease-primary);
+  --transition-shadow:
+    box-shadow var(--duration-micro) var(--ease-snappy),
+    transform var(--duration-micro) var(--ease-snappy);
+  --z-canvas: 0;
+  --z-frame: 10;
+  --z-sticky: 20;
+  --z-selection: 30;
+  --z-panel: 40;
+  --z-cursor: 50;
+  --z-overlay: 60;
+  --z-top: 100;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    min-height: 100%;
+    background: var(--surface-2);
+    color: var(--text-primary);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100%;
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--surface-2);
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  ::selection {
+    background: rgba(var(--accent-rgb), 0.16);
+    color: var(--text-primary);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes frameExpand {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
