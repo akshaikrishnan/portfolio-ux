@@ -2,6 +2,19 @@
 
 import { useEffect, useState } from "react";
 import {
+  AlignHorizontalSpaceAround,
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp,
+  ArrowUpRight,
+  Circle,
+  Columns3,
+  Minus,
+  X,
+  Zap,
+} from "lucide-react";
+import {
   ACCENT_COLORS,
   SECTION_LABELS,
   experiences,
@@ -337,7 +350,7 @@ function HeroSection({
                   boxShadow: `3px 3px 0 ${heroAccent}88`,
                 }}
               >
-                View my work ↗
+                View my work <ArrowUpRight size={16} />
               </button>
               <button
                 type="button"
@@ -353,7 +366,7 @@ function HeroSection({
                   boxShadow: "3px 3px 0 #111",
                 }}
               >
-                Let’s talk ○
+                Let&apos;s talk <Circle size={14} />
               </button>
             </div>
           </div>
@@ -473,10 +486,17 @@ function HeroSection({
                     paddingBottom: 10,
                   }}
                 >
-                  {["⊞", "↑", "↓", "→", "←", "⊡", "—", "|"].map((glyph) => (
-                    <span key={glyph} style={{ color: "#888" }}>
-                      {glyph}
-                    </span>
+                  {[
+                    Columns3,
+                    ArrowUp,
+                    ArrowDown,
+                    ArrowRight,
+                    ArrowLeft,
+                    Zap,
+                    Minus,
+                    AlignHorizontalSpaceAround,
+                  ].map((Icon, index) => (
+                    <Icon key={index} size={12} color="#888" />
                   ))}
                 </div>
                 <div
@@ -611,6 +631,7 @@ function HeroSection({
             <button
               key={item.id}
               type="button"
+              onClick={() => setHeroAccent(item.color)}
               style={{
                 width: 22,
                 height: 22,

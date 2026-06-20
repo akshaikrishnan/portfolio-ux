@@ -1,6 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import {
+  ArrowLeft,
+  ChevronDown,
+  Code2,
+  Component,
+  Download,
+  Frame,
+  Hand,
+  LayoutGrid,
+  Menu,
+  MessageSquare,
+  MousePointer2,
+  PenTool,
+  Play,
+  Type,
+  Zap,
+} from "lucide-react";
 import type {
   AccentOption,
   ExperienceItem,
@@ -257,6 +274,18 @@ export function CursorLabels({ accent }: { accent: string }) {
   );
 }
 
+function FigmaLogo({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 38 57" aria-hidden="true" style={{ display: "block" }}>
+      <path d="M19 28.5A9.5 9.5 0 1128.5 19 9.5 9.5 0 0119 28.5z" fill="#1ABCFE" />
+      <path d="M9.5 57A9.5 9.5 0 019.5 38H19v9.5A9.5 9.5 0 019.5 57z" fill="#0ACF83" />
+      <path d="M19 0H9.5a9.5 9.5 0 000 19H19z" fill="#FF7262" />
+      <path d="M28.5 0H19v19h9.5a9.5 9.5 0 000-19z" fill="#F24E1E" />
+      <path d="M28.5 19H19v19h9.5a9.5 9.5 0 000-19z" fill="#A259FF" />
+    </svg>
+  );
+}
+
 export function HRuler() {
   const ticks = Array.from({ length: 35 }, (_, i) => i - 15).map((step) => ({
     value: step * 100,
@@ -405,47 +434,38 @@ export function GridBackground({ snap }: { snap: boolean }) {
 export function LeftSidebar({ section }: { section: number }) {
   const [active, setActive] = useState("move");
   const tools = [
-    { id: "move", label: "move" },
-    { id: "frame", label: "frame" },
-    { id: "component", label: "component" },
-    { id: "pen", label: "pen" },
-    { id: "text", label: "text" },
-    { id: "hand", label: "hand" },
-    { id: "comment", label: "comment" },
-    { id: "code", label: "code" },
+    { id: "move", label: "Move", Icon: MousePointer2 },
+    { id: "frame", label: "Frame", Icon: Frame },
+    { id: "component", label: "Component", Icon: Component },
+    { id: "pen", label: "Pen", Icon: PenTool },
+    { id: "text", label: "Text", Icon: Type },
+    { id: "hand", label: "Hand", Icon: Hand },
+    { id: "comment", label: "Comment", Icon: MessageSquare },
+    { id: "code", label: "Code", Icon: Code2 },
   ];
   return (
     <div
       style={{
-        width: 60,
+        width: 52,
         background: "#1E1E1E",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "12px 0",
-        gap: 8,
+        padding: "10px 0",
+        gap: 2,
         borderRight: "1px solid #2c2c2c",
         zIndex: 200,
         flexShrink: 0,
       }}
     >
-      <div
-        style={{
-          width: 36,
-          height: 36,
-          borderRadius: "50%",
-          background: "#5B6CF9",
-          display: "grid",
-          placeItems: "center",
-          color: "#fff",
-          fontWeight: 700,
-        }}
-      >
-        A
+      <div style={{ padding: "8px 0 14px" }}>
+        <FigmaLogo />
       </div>
       {tools.map((tool) => (
         <button
           key={tool.id}
+          aria-label={tool.label}
+          title={tool.label}
           type="button"
           onClick={() => setActive(tool.id)}
           style={{
@@ -455,11 +475,12 @@ export function LeftSidebar({ section }: { section: number }) {
             border: "none",
             background: active === tool.id ? "#3a3a3a" : "transparent",
             color: active === tool.id ? "#fff" : "#888",
-            fontSize: 11,
+            display: "grid",
+            placeItems: "center",
             cursor: "pointer",
           }}
         >
-          {tool.label}
+          <tool.Icon size={18} strokeWidth={1.7} />
         </button>
       ))}
       <div
@@ -495,13 +516,13 @@ export function TopBar({
   return (
     <div
       style={{
-        height: 48,
+        height: 44,
         background: "#1E1E1E",
         borderBottom: "1px solid #2c2c2c",
         display: "flex",
         alignItems: "center",
-        padding: "0 18px",
-        gap: 12,
+        padding: "0 14px",
+        gap: 10,
         flexShrink: 0,
         zIndex: 150,
       }}
@@ -701,6 +722,7 @@ export function BottomBar({
           padding: "8px 12px",
         }}
       >
+        <FigmaLogo />
         <span style={{ color: "#aaa" }}>Figma</span>
       </div>
       <div
@@ -713,8 +735,8 @@ export function BottomBar({
           padding: "8px 12px",
         }}
       >
-        <span style={{ color: "#888" }}>⊡</span>
-        <span style={{ color: "#888" }}>⊞</span>
+        <Zap size={13} color="#888" />
+        <LayoutGrid size={13} color="#888" />
       </div>
       {section === 0 ? (
         <>
